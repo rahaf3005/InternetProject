@@ -1,0 +1,270 @@
+/* --- 1. VARIABLES & RESET --- */
+:root {
+    --primary: #6366f1;
+    --bg-body: #f3f4f6;
+    --bg-card: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+    --primary: #818cf8;
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f3f4f6;
+    --text-muted: #94a3b8;
+    --border: #334155;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 2. MODERN HEADER --- */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    /* Semi-transparent */
+    backdrop-filter: blur(12px);
+    /* Blur effect (Glassmorphism) */
+    -webkit-backdrop-filter: blur(12px);
+    /* Safari support */
+
+    position: sticky;
+    /* Sticks to top */
+    top: 0;
+    z-index: 1000;
+    /* Ensures it stays above other content */
+
+    padding: 0.8rem 5%;
+    /* More breathing room */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+/* Dark Mode adjustment for header */
+.dark-theme header {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+/* Logo Styling */
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+}
+
+.logo span {
+   /* background: linear-gradient(135deg, var(--primary), #a855f7);*/
+    /* Gradient color */
+    /*color: white;*/
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    /* Spacing between pills */
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 50px;
+    /* Pill shape */
+    transition: all 0.3s ease;
+}
+
+/* Hover & Active Effects */
+nav a:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+    /* Light fade on hover */
+    color: var(--primary);
+}
+
+nav a.active {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    /* Glow effect */
+}
+
+/* Header Actions (Theme Toggle + Login) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+button#theme-toggle {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Circle shape */
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button#theme-toggle:hover {
+    transform: scale(1.1);
+    background: var(--border);
+}
+
+/* Mobile Responsiveness: Stacks items on small screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* --- 3. MAIN LAYOUT --- */
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    width: 100%;
+    flex: 1;
+}
+
+h1,
+h2 {
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+/* --- 4. CARDS & GRIDS --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* --- 5. FORMS & TABLES --- */
+form {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: var(--radius);
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid var(--border);
+}
+
+input,
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-body);
+    color: var(--text-main);
+}
+
+button.btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--bg-body);
+    text-align: left;
+    padding: 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid var(--border);
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
