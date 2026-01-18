@@ -438,7 +438,7 @@ function renderAbout() {
 function renderContact() {
     pageTitle.textContent = 'Contact US';
     contentArea.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+        <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
             <div class="card">
                 <form id="contact-form" onsubmit="event.preventDefault(); alert('It has been sent.');">
                     <div class="form-group">
