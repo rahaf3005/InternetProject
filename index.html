@@ -2,44 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home | IT College</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT College Portal - Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="light-theme">
+    <div class="dashboard-container">
+        <!-- Sidebar Menu -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="College Logo" class="logo">
+                <div class="college-name">IT College</div>
+                <button id="close-sidebar" class="mobile-only">&times;</button>
+            </div>
+            <nav class="menu">
+                <ul id="main-menu">
+                    <li class="active" data-page="home"><a href="#"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                    <li data-page="activities"><a href="#"><i class="fas fa-newspaper"></i> <span>Activities / News</span></a></li>
+                    <li data-page="departments"><a href="#"><i class="fas fa-building"></i> <span>Departments</span></a></li>
+                    <li data-page="about"><a href="#"><i class="fas fa-info-circle"></i> <span>About US</span></a></li>
+                    <li data-page="contact"><a href="#"><i class="fas fa-envelope"></i> <span>Contact US</span></a></li>
+                    <li data-page="register"><a href="#"><i class="fas fa-user-plus"></i> <span>Student Register</span></a></li>
+                    <!-- Dynamic Auth Items -->
+                    <li id="menu-auth-item" data-page="login"><a href="#"><i class="fas fa-sign-in-alt"></i> <span id="auth-text">Login</span></a></li>
+                    <li id="menu-profile-item" data-page="profile" style="display: none;"><a href="#"><i class="fas fa-user-circle"></i> <span>Profile</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i> <span class="theme-text">Dark Mode</span>
+                </button>
+            </div>
+        </aside>
 
-  <header>
-    <div class="logo">
-        <img alt="logo" src="logo.png" height="60px">
-      IT Collage
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+                    <h1 id="page-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <span id="user-display-name" style="font-weight: 600; color: var(--text-primary);">Guest</span>
+                        <div id="user-avatar" class="profile-circle">IT</div>
+                    </div>
+                </div>
+            </header>
+
+            <section id="content-area" class="content-area">
+                <!-- Dynamic content will be loaded here -->
+            </section>
+
+            <footer class="main-footer">
+                <div class="footer-content">
+                    <p>&copy; <span id="dynamic-year"></span> IT College Portal. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Help Desk</a>
+                    </div>
+                </div>
+            </footer>
+        </main>
     </div>
 
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="activities.html">Activities</a></li>
-            <li><a href="departments.html">Departments</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="header-actions">
-        <button id="theme-toggle">🌙</button>
-        <a href="contact.html" style="font-size:0.9rem; font-weight:bold; color:var(--primary);">Sign In</a>
-    </div>
-</header>
-
-    <main>
-        <div style="text-align: center; padding: 50px 0;">
-            <h1 style="font-size: 3rem; color: var(--primary);">Future Tech Starts Here</h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem;">Welcome to the College of Information Technology.</p>
-            <br>
-          
-            <br>
-            <a href="contact.html"><button class="btn" style="padding: 12px 30px;">Apply Now</button></a>
+    <!-- Modals for Add/Edit -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Item</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="dynamic-form">
+                    <!-- Form fields will be injected here -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary close-modal">Cancel</button>
+                <button type="submit" form="dynamic-form" class="btn-primary">Save Changes</button>
+            </div>
         </div>
-    </main>
+    </div>
 
-    <footer>© 2026 IT College. Basic HTML Version.</footer>
     <script src="script.js"></script>
 </body>
 </html>
