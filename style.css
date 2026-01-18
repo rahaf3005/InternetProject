@@ -16,9 +16,9 @@
 
 .dark-theme {
     /* Dark Theme Variables */
-    --bg-color: #0b1437;
-    --sidebar-bg: #111c44;
-    --card-bg: #111c44;
+    --bg-color: #070c22;
+    --sidebar-bg: #0f152a;
+    --card-bg: #0a1332;
     --text-primary: #ffffff;
     --text-secondary: #a3aed0;
     --accent-color: #7551ff;
@@ -66,7 +66,7 @@ body {
 }
 
 .logo {
-    width: 40%;
+    width: 35%;
     
 }
 
